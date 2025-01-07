@@ -1,0 +1,7 @@
+{
+    "api_url": "https://reqres.in/api/users",
+    "create_user_data": {
+      "name": "kumari",
+      "job": "training"
+    }
+  }

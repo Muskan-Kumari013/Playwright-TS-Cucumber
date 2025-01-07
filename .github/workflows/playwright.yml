@@ -1,0 +1,49 @@
+name: Playwright Test Automation
+
+on:
+  push:
+    branches: [ master ]
+  pull_request: 
+    branches: [ master ]
+    workflow_dispatch:
+
+jobs:
+  install:
+  timeout-minutes: 60
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+
+      - name: Install Dependencies
+        run: npm install
+
+  test:
+    runs-on: windows-latest
+    needs: install
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Run Playwright Tests (UI)
+        run: npm run test_ui
+
+      - name: Run Playwright Tests (API)
+        run: npm run test_api
+
+      - name: Upload Cucumber UI Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cucumber-ui-report
+          path: reports/ui/cucumber-ui-report.html
+
+      - name: Upload Cucumber API Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: cucumber-api-report
+          path: reports/api/cucumber-api-report.html
