@@ -1,51 +1,30 @@
 name: Playwright Test Automation
-
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
   pull_request:
-    branches:
-      - master
-  workflow_dispatch:
+    branches: [ master ]
+    workflow_dispatch:
 
 jobs:
-  install:
-    timeout-minutes: 60
-    runs-on: windows-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: lts/*
-
-      - name: Install Dependencies
-        run: npm install
-
   test:
-    runs-on: windows-latest
-    needs: install
+    timeout-minutes: 60
+    runs-on: windows-latest  # Use the latest version of Ubuntu
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Playwright Browsers
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests
+      run: npm run test_ui
+    - uses: actions/upload-artifact@v4
+      if: always()  # Upload the artifact even if the tests fail
+      with:
+        name: cucumber-report.html
+        path: reports/ui/cucumber-ui-report.html
+        retention-days: 02
 
-      - name: Run Playwright Tests (UI)
-        run: npm run test_ui
-
-      - name: Run Playwright Tests (API)
-        run: npm run test_api
-
-      - name: Upload Cucumber UI Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: cucumber-ui-report
-          path: reports/ui/cucumber-ui-report.html
-
-      - name: Upload Cucumber API Report
-        uses: actions/upload-artifact@v3
-        with:
-          name: cucumber-api-report
-          path: reports/api/cucumber-api-report.html
