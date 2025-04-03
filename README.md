@@ -1,4 +1,4 @@
-**PLAYWRIGHT-QA-TASK1/Playwright Test Automation **
+**PLAYWRIGHT-TS-CUCUMBER/Playwright Test Automation **
 
 PolstarQA
 PLAYWRIGHT-QA-TASK1 is a testing framework for performing automated UI, API, and performance testing using Playwright, Cucumber, and k6.

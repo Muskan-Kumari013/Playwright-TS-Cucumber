@@ -2,16 +2,21 @@ import { Before , After, BeforeAll, AfterAll, AfterStep, setDefaultTimeout }  fr
 import {chromium, Browser, Page, BrowserContext} from "@playwright/test";
 import { HomePage } from "../pages/HomePage";
 import { pageFixture } from "./pageFixture";
-import { ConfigPage } from "../pages/ConfigPage";
-import { LoginPage } from "../pages/LoginPage";
+import { BoardGamePage } from "../pages/boardgamePages";
+import { CupcakeIpsumPage } from "../pages/cupcakelpsumPages";
+import { OrangeHRMPage } from "../pages/orangeHRMPage";
+import { SignupFormPage } from "../pages/signupFormPage";
+
 
 
 let page: Page;
 let browser: Browser;
 let context: BrowserContext;
 export let homePage: HomePage;
-export let configPage: ConfigPage;
-export let loginPage: LoginPage;
+export let boardGamePage: BoardGamePage;
+export let cupcakeIpsumPage: CupcakeIpsumPage;
+export let orangeHRMPage: OrangeHRMPage;
+export let signupFormPage: SignupFormPage;
 
 // Set the default timeout for each step to 90 seconds
 setDefaultTimeout(90000);
@@ -25,10 +30,11 @@ Before(async function () {
     context = await browser.newContext();
     page = await browser.newPage();
     pageFixture.page = page;
-    //homePage = new HomePage(page);
     homePage = new HomePage(page);  // Initialize homePage
-    configPage = new ConfigPage(page);
-    loginPage = new LoginPage(page); 
+    boardGamePage = new BoardGamePage(page); // Initialize boardgamePage
+    cupcakeIpsumPage = new CupcakeIpsumPage(page);
+    orangeHRMPage = new OrangeHRMPage(page);
+    signupFormPage = new SignupFormPage(page);
     //await page.setViewportSize({ width: 1280, height: 1024 });
     console.log('Browser launched');
   });
@@ -50,3 +56,4 @@ Before(async function () {
     await browser.close();
     console.log('Browser closed');
   });
+
