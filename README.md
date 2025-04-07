@@ -1,12 +1,12 @@
 **PLAYWRIGHT-TS-CUCUMBER/Playwright Test Automation **
 
 PolstarQA
-PLAYWRIGHT-QA-TASK1 is a testing framework for performing automated UI, API, and performance testing using Playwright, Cucumber, and k6.
+PLAYWRIGHT-TS-CUCUMBER is a testing framework for performing automated UI, API, and performance testing using Playwright, Cucumber, and k6.
 
 
 **Overview**
 
-This document outlines the Playwright Test Automation framework used for testing both the UI and API of the Polestar website. It includes an explanation of the setup, test strategy, structure, and how results and screenshots are managed in the reports.
+This document outlines the Playwright Test Automation framework used for testing both the UI and API. It includes an explanation of the setup, test strategy, structure, and how results and screenshots are managed in the reports.
 
 **Tools and Libraries**
 Playwright: A Node.js library for automating web browsers, used for UI testing.
@@ -34,7 +34,7 @@ Git: For version control, install Git from git-scm.com.
 **Clone the Repository**
 To clone the repository and set up the project, follow these steps:
 
-Open a terminal and run the following command: git clone https://github.com/Muskan-Kumari013/Playwright-Qa-Task1.git
+Open a terminal and run the following command: git clone https://github.com/Muskan-Kumari013/Playwright-TS-Cucumber.git
 
 **Test Strategy**
 
@@ -65,21 +65,21 @@ Upload reports and screenshots: After the tests, the results (including HTML rep
 **Run UI Tests:**
 The UI tests are executed using Playwright and Cucumber to test the frontend functionality.
 To run the UI tests, use the following command:
-npm run test_ui
+--npm run test_ui
 This command will execute all the UI test cases defined in the features/ folder under the UI test suite. It runs through different browsers and generates a detailed report, capturing all the necessary test steps and failures.
 
 **Run API Tests:**
 
 The API tests are executed to test the backend API endpoints.
 To run the API tests, use the following command:
-npm run test_api
+--npm run test_api
 This command will execute all the API test cases defined in the features/ folder under the API test suite. The tests interact with the backend and validate the correctness and expected behavior of the API endpoints.
 
 **Run Performance Tests:**
 
 The performance tests are executed using k6 to test how the application behaves under load and stress.
 To run the performance tests, use the following command:
-npm run test_performance
+--npm run test_performance
 This command will execute performance test scripts defined in the src/test/k6/ folder. The tests simulate a certain number of users interacting with the application and measure the performance metrics.
 
 
