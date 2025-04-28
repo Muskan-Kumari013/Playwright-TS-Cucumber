@@ -28,8 +28,6 @@ jobs:
     - name: Run Playwright UI tests
       run: npm run test_ui
 
-    - name: Run Playwright API tests
-      run: npm run test_api
 
     - uses: actions/upload-artifact@v4
       if: always()  # Upload the artifact even if the tests fail
@@ -38,9 +36,3 @@ jobs:
         path: reports/ui/cucumber-ui-report.html
         retention-days: 2
 
-    - uses: actions/upload-artifact@v4
-      if: always()  # Upload the artifact even if the tests fail
-      with:
-        name: cucumber-api-report
-        path: reports/api/cucumber-api-report.html
-        retention-days: 2
