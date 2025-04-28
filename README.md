@@ -16,7 +16,6 @@ k6: A performance testing tool that allows testing APIs and web applications und
 Axios: A promise-based HTTP client used for API testing.
 
 **Framework Structure**
-
 The framework uses Playwright for browser automation and Cucumber for behavior-driven development (BDD). It consists of the following components:
 
 API Tests - These are responsible for testing the backend of the application using HTTP requests.
