@@ -9,12 +9,14 @@ PLAYWRIGHT-TS-CUCUMBER is a testing framework for performing automated UI, API, 
 This document outlines the Playwright Test Automation framework used for testing both the UI and API. It includes an explanation of the setup, test strategy, structure, and how results and screenshots are managed in the reports.
 
 **Tools and Libraries**
+
 Playwright: A Node.js library for automating web browsers, used for UI testing.
 Cucumber: A behavior-driven development (BDD) testing framework, used for UI testing.
 k6: A performance testing tool that allows testing APIs and web applications under load.
 Axios: A promise-based HTTP client used for API testing.
 
 **Framework Structure**
+
 The framework uses Playwright for browser automation and Cucumber for behavior-driven development (BDD). It consists of the following components:
 
 API Tests - These are responsible for testing the backend of the application using HTTP requests.
